@@ -1,13 +1,32 @@
 version: '2'
 services:
-  db:
-    image: postgres
-  web:
-    build: .
-    ports:
-      - "3000:3000"
-    links:
-      - "db"
+  ledger:
+    build: ./
     environment:
-      DATABASE_URL: postgres://postgres@db/postgres
-    command: ["bash", "wait-for-postgres-then-run.sh"]
+      - RAILS_ENV=minipod
+      - DATABASE_URL=mysql2://root@db:3306/ledger_minipod
+      - REDIS_URL=redis://redis:6379/
+      - STATSD_HOST=http://localhost
+      - STATSD_PORT=2085
+      - BASIC_AUTH_USERNAME=admin
+      - BASIC_AUTH_PASSWORD=123456
+    command: /bin/bash -x /app/minipod/assure_test_dependencies.sh
+    ports:
+      - 3000:3000
+    links:
+      - db
+      - redis
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: runnable/mysql:5.6
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    command:  gosu mysql mysqld --skip-grant-tables
+
+  redis:
+    image: redis:latest
+    links:
+      - db
