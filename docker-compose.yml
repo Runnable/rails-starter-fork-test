@@ -30,3 +30,9 @@ services:
     image: redis:latest
     links:
       - db
+
+  test:
+    image: ubuntu:latest
+    command: sleep 10 && curl ledger:3000
+    links:
+      - db
