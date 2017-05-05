@@ -24,7 +24,9 @@ services:
     command:  gosu mysql mysqld --skip-grant-tables
 
   test:
-    image: ubuntu:latest
-    command: sleep 10 && curl ledger:3000
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.test
+    command: /bin/bash run_test.bash
     links:
       - db
