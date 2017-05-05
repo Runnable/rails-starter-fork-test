@@ -28,5 +28,8 @@ services:
       context: ./
       dockerfile: ./Dockerfile.test
     command: /bin/bash run_test.bash
+    environment:
+      - APP_HOST=ledger
     links:
       - db
+      - ledger
