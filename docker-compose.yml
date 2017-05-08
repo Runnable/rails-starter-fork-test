@@ -27,7 +27,7 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile.test
-    command: /bin/bash test_running_of_test.bash  # /bin/bash run_test.bash
+    command: /bin/bash /test_running_of_test.bash  # /bin/bash run_test.bash
     environment:
       - APP_HOST=ledger
     links:
