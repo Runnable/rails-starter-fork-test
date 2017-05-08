@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-echo "START"
+echo "! START"
 
 echo "yo"
 echo "start"
