@@ -21,13 +21,13 @@ services:
     image: runnable/mysql:5.6
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    command: echo "wow" && echo "start" && sleep 99999999 # gosu mysql mysqld --skip-grant-tables
+    command: gosu mysql mysqld --skip-grant-tables
 
   test:
     build:
       context: ./
       dockerfile: ./Dockerfile.test
-    command: /bin/bash /test_running_of_test.bash  # /bin/bash run_test.bash
+    command: /bin/bash run_test.bash
     environment:
       - APP_HOST=ledger
     links:
