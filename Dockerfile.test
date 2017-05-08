@@ -1,5 +1,6 @@
 FROM tutum/curl
 
 ADD run_test.bash /
+ADD test_running_of_test.bash /
 
 CMD [ "/bin/bash", "/run_test.bash" ]
