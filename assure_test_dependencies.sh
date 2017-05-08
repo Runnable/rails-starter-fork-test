@@ -2,7 +2,7 @@
 db_host=$1
 db_host=${db_host:-db}
 
-max_retries=${MAX_RETRIES:-10}
+max_retries=${MAX_RETRIES:-1000}
 retries=$max_retries
 
 export RAILS_ENV=development
