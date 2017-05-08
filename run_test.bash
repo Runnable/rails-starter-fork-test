@@ -1,4 +1,4 @@
-max_retries=${MAX_RETRIES:-20}
+max_retries=${MAX_RETRIES:-200}
 retries=$max_retries
 
 while [ $retries -gt 0 ] ; do
