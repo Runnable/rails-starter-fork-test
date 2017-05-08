@@ -2,6 +2,7 @@ max_retries=${MAX_RETRIES:-200}
 retries=$max_retries
 
 echo "Start tests..."
+sleep 9999
 
 while [ $retries -gt 0 ] ; do
   echo "Attempting curl: Retries ${retries}"
