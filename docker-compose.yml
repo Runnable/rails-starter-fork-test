@@ -4,7 +4,7 @@ services:
     build: ./
     environment:
       - RAILS_ENV=minipod
-      - DATABASE_URL=mysql2://root@db:3306/ledger_minipod
+      - DATABASE_URL=mysql2://mysql:mysql@db:3306/ledger_minipod
       - STATSD_HOST=http://localhost
       - STATSD_PORT=2085
       - BASIC_AUTH_USERNAME=admin
