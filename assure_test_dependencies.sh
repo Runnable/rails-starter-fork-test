@@ -11,6 +11,7 @@ while [ $retries -gt 0 ] ;  do
     echo "rails db:setup"
     ./bin/bundle exec rails db:setup
     db_readiness=$?
+    echo "DB Readiness: $db_readiness"
     echo "remaining retries: ${retries}"
     if [ $db_readiness -ne 0 ] ; then
         ((retries--))
