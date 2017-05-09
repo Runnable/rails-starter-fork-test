@@ -18,10 +18,11 @@ services:
       - db
 
   db:
-    image: runnable/mysql:5.6
+    image: mysql:5.7
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    command: gosu mysql mysqld --skip-grant-tables
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=ledger_minipod
 
   test:
     build:
