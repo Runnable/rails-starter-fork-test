@@ -3,7 +3,7 @@ development: &default
   database: ledger_minipod
   pool: 5
   username: root
-  password: mysql
+  password:
   host: db
 
 test:
